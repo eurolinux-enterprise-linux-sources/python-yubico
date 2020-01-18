@@ -4,8 +4,8 @@
 %endif
 
 Name:           python-yubico
-Version:        1.2.1
-Release:        3%{?dist}
+Version:        1.2.3
+Release:        1%{?dist}
 Summary:        Pure-python library for interacting with Yubikeys
 
 License:        BSD
@@ -17,6 +17,7 @@ BuildRequires:  python2-devel
 BuildRequires:  python-setuptools
 %if 0%{?rhel} == 0 || 0%{?rhel} >= 7
 BuildRequires:  python-nose
+BuildRequires:  pyusb
 %endif
 Requires:       pyusb
 
@@ -47,6 +48,10 @@ nosetests -e test_challenge_response -e test_serial -e test_status
 %endif
 
 %changelog
+* Mon Mar 23 2015 Nathaniel McCallum <npmccallum@redhat.com> - 1.2.3-1
+- Upstream 1.2.3
+- Require pyusb during building when running tests
+
 * Mon Jun 23 2014 Nathaniel McCallum <npmccallum@redhat.com> - 1.2.1-3
 - Enable build on EL6.
 
